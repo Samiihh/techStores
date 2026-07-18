@@ -1,0 +1,367 @@
+/* 
+TECHSTORE - Folha de Estilos
+
+*/
+
+/* Import da fonte, que deve ficar sempre no inicio do arquivo */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Variaveis CSS 
+são definidas para se reutilizar dentro do projeto
+*/
+
+:root {
+
+    --primary-color: #3498db;
+    /* Aezul - botoes primcipais e destaques*/
+    --secondary-color: #2ecc71;
+    /*Verde- botões segundarios e titulos*/
+    --dark-color: #2c3e50;
+    /*Azul escuro*/
+    --light-color: #ecf0f1;
+    --text-color: #333;
+    --white-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Estilos Globais*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    /*Espaçamento entre as linhas */
+    overflow-x: hidden;
+    /*Impede Rolagem Horizontal*/
+}
+
+/* .container é um classe reutilizavel que centraliza o conteudo e limita a largura máxima, criando margens laterais automáticas em telas grandes */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ==========================================================================
+   4. ANIMAÇÕES (@keyframes)
+   ==========================================================================
+   @keyframes é a regra que DEFINE o movimento. Pense nela como um roteiro
+   que diz: "no início o elemento está assim, no final está assim".
+
+   Fluxo completo de uma animação neste projeto:
+     1. Criamos o roteiro aqui com @keyframes
+     2. Aplicamos no elemento com a propriedade animation (nas classes abaixo)
+     3. O navegador interpola os valores entre from e to automaticamente
+
+   Palavras-chave usadas nos quadros:
+     from  = 0%   → estado INICIAL da animação
+     to    = 100% → estado FINAL da animação
+
+   Propriedades animadas neste projeto:
+     opacity   → transparência (0 = invisível, 1 = totalmente visível)
+     transform → move (translate) ou redimensiona (scale) sem alterar o layout
+   ========================================================================== */
+
+/* --- @keyframes fadeInUp ---
+   Nome da animação: fadeInUp (usada pela classe .fade-in-up no Hero)
+   Efeito visual: o elemento "surge" de baixo para cima enquanto aparece.
+
+   Como ler o código:
+     from → começa invisível (opacity: 0) e 20px ABAIXO da posição normal
+     to   → termina visível (opacity: 1) na posição original (translateY(0))
+
+   translateY(20px)  → move no eixo vertical (Y). Valor positivo = desce.
+   translateY(0)     → posição final, sem deslocamento vertical. */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+/* --- @keyframes fadeInBottom ---
+   Nome da animação: fadeInBottom (usada pela classe .fade-in-bottom)
+   O movimento é idêntico ao fadeInUp — mantemos nomes separados para
+   organizar o código: uma animação para o Hero, outra para os Produtos.
+   Em projetos maiores, isso facilita alterar uma sem afetar a outra. */
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- @keyframes fadeInLeft ---
+   Nome da animação: fadeInLeft (usada pela classe .fade-in-left na seção Sobre)
+   Efeito visual: o texto desliza da ESQUERDA para a posição final.
+
+   translateX(-20px) → valor NEGATIVO move o elemento para a esquerda.
+                       No "to", translateX(0) traz de volta ao lugar original. */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- @keyframes fadeInRight ---
+   Nome da animação: fadeInRight (usada pela classe .fade-in-right na seção Sobre)
+   Efeito visual: a imagem desliza da DIREITA — contraponto ao texto à esquerda.
+
+   translateX(20px) → valor POSITIVO move o elemento para a direita.
+   Juntos, fadeInLeft + fadeInRight criam um efeito de "abertura" da seção Sobre. */
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- @keyframes pulse-logo ---
+   Nome da animação: pulse-logo (usada em .logo-text no cabeçalho)
+   Efeito visual: o logo "pulsa" levemente, aumentando e voltando ao tamanho normal.
+
+   Diferente das animações acima, esta usa PORCENTAGENS (0%, 50%, 100%)
+   para definir 3 momentos do ciclo — não apenas início e fim.
+
+   scale(1)    → tamanho original (100%)
+   scale(1.05) → 5% maior no meio do ciclo
+   scale(1)    → volta ao tamanho original
+
+   No CSS da classe .logo-text, usamos "infinite" para repetir sem parar. */
+@keyframes pulse-logo {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* --------------------------------------------------------------------------
+   CLASSES UTILITÁRIAS DE ANIMAÇÃO
+   --------------------------------------------------------------------------
+   São "atalhos" reutilizáveis. No HTML, basta adicionar a classe no elemento:
+
+     <h1 class="fade-in-up">Título</h1>
+     <p class="fade-in-up delay-1">Parágrafo</p>
+
+   O navegador executa a animação automaticamente ao carregar a página.
+   -------------------------------------------------------------------------- */
+
+
+/* --- .fade-in-up ---
+   Onde usar: seção Hero (título, parágrafo e botão).
+   Efeito: elemento surge de baixo para cima com fade (opacidade 0 → 1). */
+.fade-in-up {
+    /* animation é uma propriedade abreviada (shorthand) com 4 valores:
+       1) fadeInUp  → nome da animação definida em @keyframes
+       2) 0.8s      → duração (0,8 segundo)
+       3) ease-out  → começa rápido e desacelera no final (mais natural)
+       4) forwards  → MANTÉM o estado final após a animação terminar
+                        (sem forwards, o elemento voltaria a ficar invisível) */
+    animation: fadeInUp 0.8s ease-out forwards;
+
+    /* opacity: 0 define o estado INICIAL antes da animação começar.
+       Sem isso, o elemento apareceria visível por um instante e depois animaria. */
+    opacity: 0;
+}
+
+/* --- Delays no Hero (efeito cascata / stagger) ---
+   Quando o elemento tem DUAS classes juntas (.fade-in-up.delay-1), o CSS
+   aplica ambas. O delay faz a animação ESPERAR antes de iniciar.
+
+   Linha do tempo ao carregar a página:
+     0.0s → título começa a animar
+     0.2s → parágrafo começa (delay-1)
+     0.4s → botão começa (delay-2)
+
+   Isso cria a sensação de que os elementos entram um após o outro. */
+.fade-in-up.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.fade-in-up.delay-2 {
+    animation-delay: 0.4s;
+}
+
+/* --- .fade-in-bottom ---
+   Onde usar: cards da seção "Nossos Produtos".
+   Efeito: igual ao fade-in-up (sobe de baixo), mas em classe separada
+   para podermos controlar delays diferentes (até delay-3 nos 4 cards). */
+.fade-in-bottom {
+    animation: fadeInBottom 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Cada card espera um pouco mais que o anterior — efeito cascata nos 4 produtos:
+   Card 1: sem delay (0s)
+   Card 2: delay-1 (0.2s)
+   Card 3: delay-2 (0.4s)
+   Card 4: delay-3 (0.6s) */
+.fade-in-bottom.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.fade-in-bottom.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.fade-in-bottom.delay-3 {
+    animation-delay: 0.6s;
+}
+
+
+/* --- .fade-in-left ---
+   Onde usar: bloco de texto da seção "Sobre a TechStore".
+   Efeito: texto desliza da esquerda para a direita enquanto aparece. */
+.fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Cabeçalho */
+
+.main-header {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    text-align: center;
+    max-width: 100%;
+}
+
+.logo {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: inline-block;
+    flex-shrink: 0; /*impede que o logo encolha quando faltar espaço*/
+}
+
+.logo-text {
+    animation: pulse-logo 2s infinite ease-in-out;
+    display: inline-block;/*Necessario para transform/aimation funcionar bem*/
+}
+
+.main-nav {
+    max-width: 100%;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-nav a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* SEÇÂO HERO  */
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0, 0.7),rgba(0,0,0, 0.7)), url('../images/banner.png');
+
+    background-size: cover; /*A imagem cobre toda a aerea sem distorcer*/
+    background-position: center; /* Centraliza o recorte da imagem*/
+    color: var(--white-color);
+    text-align: center;
+    padding: 80px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /*Ocupa pelo menos 60% da altura da Tela*/
+}
+
+.hero-content {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botões (componentes reutilizados) */
+
+.btn {
+    display: inline-block; /*Permite padding e matém fluxo inline*/
+    background-color: var(--primary-color);
+    padding: 12px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform:  translateY(-3px); /*Efeito de levitar*/
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover{
+    background-color: #27ae60;
+}

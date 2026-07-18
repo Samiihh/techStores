@@ -7,9 +7,11 @@
     <!-- Icone (favicon) exibido na aba do nasvegador, ao lado do titulo -->
     <link rel="icon" type="icon" href="/images/icon.png" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
   </head>
   <body>
-    <header>
+    <header class="main-header">
       <div class="container header-content">
         <a href="#home" class="logo">
           <span class="logo-text">TechStore</span>
@@ -72,7 +74,7 @@
               <h3>Laptop Gamer X1</h3>
               <p>Performance extrema para seus jogos</p>
               <span class="price">R$ 4.999,00</span>
-              <a href="#" class="btn btn-primary">Comprar</a>
+              <a href="#" class="btn btn-secondary">Comprar</a>
             </div>
             <!-- slide2 -->
             <div class="carousel-item">
@@ -80,7 +82,7 @@
               <h3>Tablet Pro Max</h3>
               <p>Produtividae e entreterimento em sua mãos.</p>
               <span class="price">R$ 2.599,00</span>
-              <a href="#" class="btn btn-primary">Comprar</a>
+              <a href="#" class="btn btn-secondary">Comprar</a>
             </div>
             <!-- slide3 -->
             <div class="carousel-item">
@@ -88,7 +90,7 @@
               <h3>Smart TV 4k Ultra</h3>
               <p>Imagens incríveis e som de cinema.</p>
               <span class="price">R$ 3.299,00</span>
-              <a href="#" class="btn btn-primary">Comprar</a>
+              <a href="#" class="btn btn-secondary">Comprar</a>
             </div>
             <!-- slide4 -->
             <div class="carousel-item">
@@ -96,9 +98,10 @@
               <h3>Headset Gamer Pro</h3>
               <p>Comunicão clara áudio de alta fidelidade.</p>
               <span class="price">R$ 399,00</span>
-              <a href="#" class="btn btn-primary">Comprar</a>
+              <a href="#" class="btn btn-secondary">Comprar</a>
             </div>
-          </div> <!--fechamento da div carousel-slides-->
+          </div>
+          <!--fechamento da div carousel-slides-->
 
           <!-- for="slide1" conecta a label ao input - ao clicar na bolinha ativa do slide -->
           <div class="carousel-nav-dots">
@@ -106,9 +109,12 @@
             <label for="slide2" class="carousel-dot"></label>
             <label for="slide3" class="carousel-dot"></label>
             <label for="slide4" class="carousel-dot"></label>
-          </div><!--fechamento da div carousel-nav-dots -->
-        </div> <!-- fechamento da div carousel-wrapper-->
-      </div> <!--fechamento da div container-->
+          </div>
+          <!--fechamento da div carousel-nav-dots -->
+        </div>
+        <!-- fechamento da div carousel-wrapper-->
+      </div>
+      <!--fechamento da div container-->
     </section>
 
     <!-- 
@@ -117,46 +123,100 @@
     <article< é a tag semantica ideal para card de prosutos
     -->
     <section id="products" class="products-section">
-        <div class=" container">
-            <h2 class="section-title">Nossos Produtos</h2>
+      <div class="container">
+        <h2 class="section-title">Nossos Produtos</h2>
 
-            <div class="products-grid">
-                <!-- produto 1 -->
-                <article class=" product-card fade-in-bottom">
-                    <img src="/images/sansung.webp" alt=" Samrtwatch Ultra">
-                    <h3>Samrtwatch Ultra</h3>
-                    <p>Monitore sya saúde e receba notificações no pulso.</p>
-                    <span class="price">R$ 899,00</span>
-                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                </article>
-                <!-- produto 2 -->
-                <article class=" product-card fade-in-bottom delay-1">
-                    <img src="/images/jblFone.webp" alt=" Fone Bluetooth Pro">
-                    <h3> Fone Bluetooth Pro </h3>
-                    <p>Àudioimersivo e cancelamento de ruido ativo.</p>
-                    <span class="price">R$ 499,00</span>
-                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                </article>
-                <!-- produto 3 -->
-                <article class=" product-card fade-in-bottom delay-2">
-                    <img src="/images/camera.jpeg" alt="Câmera Esportiva 4k">
-                    <h3> Câmera Esportiva 4k</h3>
-                    <p>Capture seus momentos de avetura em alra definição.</p>
-                    <span class="price">R$ 1.299,00</span>
-                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                </article>
-                <!-- produto 4 -->
-                <article class=" product-card fade-in-bottom delay-3">
-                    <img src="/images/powerbank.jpeg" alt="Powerbank Ultra Rápido">
-                    <h3> Powerbank Ultra Rápido</h3>
-                    <p>Nunca mais fique sem bateria com esse carregador portátil.</p>
-                    <span class="price">R$ 199,00</span>
-                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                </article>
-
-            </div><!--fechamento da div products-grid -->
-
-        </div> <!-- fechamento da div container-->
+        <div class="products-grid">
+          <!-- produto 1 -->
+          <article class="product-card fade-in-bottom">
+            <img src="/images/sansung.webp" alt=" Samrtwatch Ultra" />
+            <h3>Samrtwatch Ultra</h3>
+            <p>Monitore sya saúde e receba notificações no pulso.</p>
+            <span class="price">R$ 899,00</span>
+            <a href="#" class="btn btn-secondary">Adicionar ao carrinho</a>
+          </article>
+          <!-- produto 2 -->
+          <article class="product-card fade-in-bottom delay-1">
+            <img src="/images/jblFone.webp" alt=" Fone Bluetooth Pro" />
+            <h3>Fone Bluetooth Pro</h3>
+            <p>Àudioimersivo e cancelamento de ruido ativo.</p>
+            <span class="price">R$ 499,00</span>
+            <a href="#" class="btn btn-secondary">Adicionar ao carrinho</a>
+          </article>
+          <!-- produto 3 -->
+          <article class="product-card fade-in-bottom delay-2">
+            <img src="/images/camera.jpeg" alt="Câmera Esportiva 4k" />
+            <h3>Câmera Esportiva 4k</h3>
+            <p>Capture seus momentos de avetura em alra definição.</p>
+            <span class="price">R$ 1.299,00</span>
+            <a href="#" class="btn btn-secondary">Adicionar ao carrinho</a>
+          </article>
+          <!-- produto 4 -->
+          <article class="product-card fade-in-bottom delay-3">
+            <img src="/images/powerbank.jpeg" alt="Powerbank Ultra Rápido" />
+            <h3>Powerbank Ultra Rápido</h3>
+            <p>Nunca mais fique sem bateria com esse carregador portátil.</p>
+            <span class="price">R$ 199,00</span>
+            <a href="#" class="btn btn-secondary">Adicionar ao carrinho</a>
+          </article>
+        </div>
+        <!--fechamento da div products-grid -->
+      </div>
+      <!-- fechamento da div container-->
     </section>
+
+    <!-- 
+      SEÇÃO SOBRE A LOJA
+      Layout de duas colunas no descktop (texto + logo/imagem)
+    -->
+
+    <section id="about" class="about-section">
+      <div class="container about-content">
+        <!--inicio da div about-content-->
+        <div class="about-text fade-in-left"> <!--inicio da div about-text-->
+          <h2>Sobre a TechStore</h2>
+          <p>
+            Na TechStore, somos apaixonados por tecnologia e inovação. Nosso
+            objetivo é trazer os melhores gadgets e eletrônicos para você, com
+            qualidade e preços justos.
+          </p>
+          <p>
+            Acreditamos que a tecnologia deve ser acessível a todos, facilitando
+            o dia a dia e proporcionando novas experiências.
+          </p>
+        </div> <!--fim da div about-text-->
+        <div class="about-imagem fade-in-right"> <!--inicio da div about-imagem-->
+          <img src="/images/logo.png" alt="Nossa Loja">
+        </div>
+      </div> <!--fim da div about-imagem-->
+      <!--fim da div about-container-->
+    </section>
+
+    <!-- 
+      RODAPÉ (footer)
+      id='contact' é o alvo do link "contato" no menu
+    -->
+
+    <footer id="contact" class="main-footer">
+      <div class="container footer-content"> <!--inicio da div footer-content-->
+        <div class="contact-info">
+          <h3>Contato</h3>
+          <p>Email: contato@techsotore.com.br</p>
+          <p>Telefone: (11) xxxxx-xxxx</p>
+        </div>
+      </div>
+
+      <div class="social-media">
+        <h3>Siga-nos</h3>
+        <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
+        <a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i>Twitter</a>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2026 TechStore. Todos os diireitos reservados.</p>
+      </div>
+
+    </footer>
   </body>
 </html>
